@@ -1,6 +1,6 @@
 Name:           psimedia
 Version:        1.0.3
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Audio and video RTP services for Psi-like IM clients
 
 Group:          Applications/Multimedia
@@ -57,6 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/psi/plugins/libgstprovider.so
 
 %changelog
+* Sun Jul 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.3-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
+
 * Fri Jul 17 2009 Alexey Kurov <nucleo@fedoraproject.org> - 1.0.3-2
 - Fixed patch for using libdir in plugins path
 - Group changed to Applications/Multimedia

@@ -1,6 +1,6 @@
 Name:           psimedia
 Version:        1.0.3
-Release:        2%{?dist}
+Release:        4%{?dist}
 Summary:        Audio and video RTP services for Psi-like IM clients
 
 Group:          Applications/Multimedia
@@ -11,6 +11,9 @@ Source1:        psimedia.desktop
 # Using %{_libdir}/psi/plugins directory for psimedia demo
 Patch0:         psimedia-demo.patch
 Requires:       psi >= 0.13
+
+# psi crashes if gstreamer-plugins-good not installed
+Requires:       gstreamer-plugins-good
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -57,6 +60,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/psi/plugins/libgstprovider.so
 
 %changelog
+* Tue Aug 25 2009 Alexey Kurov <nucleo@fedoraproject.org> - 1.0.3-4
+- Added BR gstreamer-plugins-good to avoid psi crash
+
+* Sun Jul 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.3-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
+
 * Fri Jul 17 2009 Alexey Kurov <nucleo@fedoraproject.org> - 1.0.3-2
 - Fixed patch for using libdir in plugins path
 - Group changed to Applications/Multimedia

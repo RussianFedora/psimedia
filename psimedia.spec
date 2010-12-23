@@ -1,6 +1,6 @@
 Name:           psimedia
 Version:        1.0.3
-Release:        4%{?dist}
+Release:        4%{?dist}.1
 Summary:        Audio and video RTP services for Psi-like IM clients
 
 Group:          Applications/Multimedia
@@ -10,7 +10,7 @@ Source0:        http://delta.affinix.com/download/psimedia/%{name}-%{version}.ta
 Source1:        psimedia.desktop
 # Using %{_libdir}/psi/plugins directory for psimedia demo
 Patch0:         psimedia-demo.patch
-Requires:       psi >= 0.13
+Requires:       /usr/bin/psi
 
 # psi crashes if gstreamer-plugins-good not installed
 Requires:       gstreamer-plugins-good
@@ -60,6 +60,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/psi/plugins/libgstprovider.so
 
 %changelog
+* Fri Oct  8 2010 Arkady L. Shane <ashejn@yandex-team.ru> - 1.0.3-4.1
+- cahnge R: psi to R: /usr/bin/psi as we use psi and psi-plus
+
 * Tue Aug 25 2009 Alexey Kurov <nucleo@fedoraproject.org> - 1.0.3-4
 - Added BR gstreamer-plugins-good to avoid psi crash
 
